@@ -1,0 +1,64 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    background: url(/assets/images/login_bg.jpg) no-repeat top;
+    background-size: cover;
+}
+/* logo区 */
+.logo {
+    width: 1200px;
+    height: 60px;
+    margin: 20px auto 0;
+}
+.logo a {
+    display: block;
+    width: 146px;
+    height: 60px;
+    font-size: 0;
+    background: url(/assets/images/logo.png) no-repeat 0 0;
+}
+/* 登录、注册区域公共样式 */
+#login,
+#register {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 310px;
+    background: #fff;
+}
+.title {
+    height: 100px;
+    background: url(/assets/images/login_title.png) no-repeat center;
+}
+.layui-form {
+    padding: 0 30px;
+}
+#goto-login,
+#goto-register {
+    text-align: right;
+}
+.layui-input {
+    padding-left: 35px;
+}
+/* 字体图标 */
+.layui-form-item {
+    position: relative;
+}
+.layui-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* 注册区 */
+#register {
+    display: none;
+}
+#register .title {
+    height: 60px;
+}
