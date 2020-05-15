@@ -6,6 +6,9 @@
 .layui-side .layui-side-scroll {
     width: 100%!important;
 }
+.layui-nav-item a {
+    font-size: 13px;
+}
 /* 添加的用户头像信息区域 */
 .userInfo {
     width: auto;
@@ -23,6 +26,7 @@
     display: none;
     width: 36px;
     height: 36px;
+    margin-right: 8px;
     color: #fff;
     font-size: 18px;
     line-height: 36px;
