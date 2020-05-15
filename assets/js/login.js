@@ -38,7 +38,6 @@ $(function () {
             }
         }
     });
-
     // --------------- 注册功能 ---------------
     // 监听submit事件
     $('#register form').on('submit', function (e) {
@@ -46,7 +45,7 @@ $(function () {
         e.preventDefault()
         // 获取表单输入的内容
         var formData = $(this).serialize()
-        // 发送ajax请求获取后台接口数据
+        // 发送ajax请求 把账号和密码提交给接口，从而完成注册
         $.post('http://www.liulongbin.top:3007/api/reguser', formData,
             function (res) {
                 // 注册成功与否都提示信息
@@ -54,6 +53,25 @@ $(function () {
                 if (res.status === 0) {
                     // 注册成功, 切到登录区
                     $('#goto-login a').trigger('click')
+                }
+            })
+    })
+    // --------------- 登录功能 ---------------
+    $('#login form').on('submit', function (e) {
+        // 阻止浏览器默认行为 (阻止表单自动提交) 
+        e.preventDefault()
+        // 获取表单输入的内容 
+        var formdata = $(this).serialize()
+        // 发送ajax请求
+        $.post('http://www.liulongbin.top:3007/api/login', formdata,
+            function (res) {
+                // 登录成功与否都提示信息
+                layer.msg(res.message)
+                if (res.status === 0) {
+                    // 登录成功本地存储 token
+                    localStorage.setItem('token', res.token)
+                    // 并页面跳转到index.html
+                    location.href = '/index.html'
                 }
             })
     })
