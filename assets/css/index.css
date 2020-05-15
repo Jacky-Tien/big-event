@@ -1,0 +1,32 @@
+/* 字体图标设置 */
+.iconfont,
+.layui-icon {
+    margin-right: 10px;
+}
+/* 添加的用户头像信息区域 */
+.userInfo {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.layui-nav-img {
+    width: 36px;
+    height: 36px;
+}
+.text-img {
+    /* display: inline-block; */
+    display: none;
+    width: 36px;
+    height: 36px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 36px;
+    text-align: center;
+    background-color: #009688;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+.welcome {
+    font-size: 12px;
+    vertical-align: middle;
+}
