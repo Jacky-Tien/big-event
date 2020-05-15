@@ -2,7 +2,16 @@ $(function () {
     // --------------- 获取用户信息，并渲染到页面中 ---------------
     // 调用函数
     getUserInfo()
-
+    // --------------- 退出功能 ---------------
+    $('#logout').on('click', function () {
+        // 弹框询问是否退出 
+        layer.confirm('确定要退出吗？', { icon: 3, title: '提示' }, function (index) {
+            // 确定过后, 删除 本地存储的 token 页面跳转到登录页
+            localStorage.removeItem('token')
+            location.href = '/login.html'
+            layer.close(index);
+        });
+    })
 })
 
 // 封装一个函数, 完成获取用户信息, 并渲染到页面中的功能
@@ -27,6 +36,10 @@ function getUserInfo() {
                     $('.text-img').css('display', 'inline-block').text(name.slice(0, 1).toUpperCase())
                     $('.layui-nav-img').hide()
                 }
+            } else if (res.status === 1 && res.message === '身份认证失败！') {
+                // 限制用户使用假的token或者过期的token进入首页
+                localStorage.removeItem('token')
+                location.href = '/login.html'
             }
         }
     })
