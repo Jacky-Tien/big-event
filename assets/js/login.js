@@ -38,4 +38,23 @@ $(function () {
             }
         }
     });
+
+    // --------------- 注册功能 ---------------
+    // 监听submit事件
+    $('#register form').on('submit', function (e) {
+        // 阻止浏览器默认行为 (阻止表单自动提交)  
+        e.preventDefault()
+        // 获取表单输入的内容
+        var formData = $(this).serialize()
+        // 发送ajax请求获取后台接口数据
+        $.post('http://www.liulongbin.top:3007/api/reguser', formData,
+            function (res) {
+                // 注册成功与否都提示信息
+                layer.msg(res.message);
+                if (res.status === 0) {
+                    // 注册成功, 切到登录区
+                    $('#goto-login a').trigger('click')
+                }
+            })
+    })
 })
